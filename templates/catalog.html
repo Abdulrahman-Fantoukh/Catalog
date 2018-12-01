@@ -1,0 +1,29 @@
+<html>
+	<body>
+	<div>
+		<div>
+		<h1>Catalog</h1>
+	</div>
+<div>
+		      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+</div>
+		{% for i in categories %}
+    <div>
+        <a href='{{url_for('categoryDetails', catagory_id = i.id)}}'>{{i.name}}</a>
+	</div>
+</br>
+		{% endfor %}
+
+</div>
+	</body>
+</html>

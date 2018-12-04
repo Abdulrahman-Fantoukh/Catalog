@@ -19,7 +19,7 @@
 </div>
 		{% for i in categories %}
     <div>
-        <a href='{{url_for('categoryDetails', catagory_id = i.id)}}'>{{i.name}}</a>
+        <a href='{{url_for('categoryDetails', category_id = i.id)}}'>{{i.name}}</a>
 	</div>
 </br>
 		{% endfor %}

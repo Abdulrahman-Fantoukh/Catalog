@@ -1,10 +1,14 @@
-<html>
-    <body>
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
         <h1>Editing {{ item.title }}</h1>
         <form action='{{ url_for('editItem', category_id = category.id, item_id = item.id ) }}' method = 'post'>
             <input type ='text' size='30' name='title' value = '{{item.title }}'><br>
             <input type ='text' size='200' name='description' value = '{{item.description }}'><br>
+            <Select name = 'category'>
+                <option value="Football">Football</option>
+                <option value="Snowboarding">Snowboarding</option>
+            </Select>
             <input type='submit' value='Edit'>
         </form>
-    </body>
-</html>
+{% endblock %}

@@ -1,29 +1,36 @@
-<html>
-	<body>
-	<div>
-		<div>
-		<h1>Catalog</h1>
-	</div>
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
 <div>
-		      {% with messages = get_flashed_messages() %}
-      {% if messages %}
-          
-        <ul>
-        {% for message in messages %}
-            <li> <strong> {{ message }} </strong> </li>
-        {% endfor %}
-        </ul>
-        {% endif %}
-    {% endwith %}
-
-</div>
-		{% for i in categories %}
+    <div class="page-header">
+        <h1>Catalog</h1>
+        </div>
+    {% include "flash.html" %}
     <div>
-        <a href='{{url_for('categoryDetails', category_id = i.id)}}'>{{i.name}}</a>
-	</div>
-</br>
-		{% endfor %}
+        <a class="btn btn-success btn-xs" role="button" href='{{url_for('newItem' ) }}'>Add Item</a>
+    </div>
 
+
+
+    <div class="row">
+        <div class="col">
+		{% for i in categories %}
+        <div>
+            <a href='{{url_for('categoryDetails', category_id = i.id)}}'>{{i.name}}</a>
+        </div>
+        </br>
+        {% endfor %}
+        </div>
+      
+        <div class="col">
+        <section>Latest added items:</section></br>
+            {% for item,cat in theList %} 
+            <div>
+                <a href='{{url_for('itemDetails', category_id = cat.id, item_id = item.id)}}'>{{item.title}}</a><a> in <strong>{{cat.name}}</strong></a>
+            </div>
+        </br>
+        {% endfor %}
+        </div>
+    </div>
 </div>
-	</body>
-</html>
+{% endblock %}

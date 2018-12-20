@@ -18,12 +18,12 @@ session.add(football)
 session.commit()
 
 
-ball = Item(title = "Ball", description = "used to kick it to the goal",category = football)
+ball = Item(title = "Ball", description = "used to kick it to the goal",category = football,within=football)
 
 session.add(ball)
 session.commit()
 
-shoes = Item(title = "shoes", description = "wear it because you will need it",category = football)
+shoes = Item(title = "shoes", description = "wear it because you will need it",category = football,within=football)
 
 session.add(shoes)
 session.commit()
@@ -35,12 +35,12 @@ session.add(snowboarding)
 session.commit()
 
 
-goggles = Item(title = "Goggles", description = "to protect your eyes to get snow",category = snowboarding)
+goggles = Item(title = "Goggles", description = "to protect your eyes to get snow",category = snowboarding,within=snowboarding)
 
 session.add(goggles)
 session.commit()
 
-snowboard = Item(title = "snowboard", description = "its good :)",category = snowboarding)
+snowboard = Item(title = "snowboard", description = "its good :)",category = snowboarding,within=snowboarding)
 
 session.add(snowboard)
 session.commit()

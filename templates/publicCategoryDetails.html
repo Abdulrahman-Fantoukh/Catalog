@@ -1,7 +1,6 @@
 {% extends "main.html" %}
 {% block content %}
 {% include "header.html" %}
-	
         <a href='{{url_for('showCategories') }}'>Catalog</a><br>
 	<div>
 		<div>
@@ -9,10 +8,6 @@
 	    </div>
         <div>
             {% include "flash.html" %}
-        </div>
-
-        <div>
-            <a href='{{url_for('newCategoryItem', category_id = category.id)}}'>Add item to {{category.name}}</a>
         </div>
         
 	{% for i in items %}
@@ -24,5 +19,6 @@
 	{% endfor %}
 
     </div>
+
 </div>
 {% endblock %}

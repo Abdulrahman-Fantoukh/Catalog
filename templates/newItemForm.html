@@ -1,0 +1,14 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+        <h1>Add Item</h1>
+        <form action='{{ url_for('newItem') }}' method = 'post'>
+            <input type ='text' size='30' name='title' placeholder = 'title'><br>
+            <input type ='text' size='200' name='description' placeholder = 'description'><br>
+            <Select name = 'category'>
+                <option value="Football">Football</option>
+                <option value="Snowboarding">Snowboarding</option>
+            </Select>
+            <input type='submit' value='Add'>
+        </form>
+{% endblock %}

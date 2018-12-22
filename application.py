@@ -256,6 +256,7 @@ def categoryDetails(category_id):
 @app.route('/catalog/<int:category_id>/<int:item_id>/details')
 def itemDetails(category_id, item_id):
     category = session.query(Category).filter_by(id=category_id).one()
+    print(category.name)
     item = session.query(Item).filter_by(category_id=category_id,
                                          id=item_id).one()
     if 'username' not in login_session:
@@ -326,21 +327,24 @@ def editItem(category_id, item_id):
                                 item_id=item_id,
                                 pictureURL=login_session['picture']))
     if request.method == 'POST':
-        Cname = request.form['category']
-        newC = session.query(Category).filter_by(name=Cname).one()
-        newID = newC.id
+        # Cname = request.form['category']
+        # newC = session.query(Category).filter_by(name=Cname).one()
+        # newID = newC.id
         if request.form['title']:
             editedItem.title = request.form['title']
+        if request.form['description']:
             editedItem.description = request.form['description']
-            editedItem.category_id = newID
-            newItem = editedItem
-            session.delete(editedItem)
-            session.add(newItem)
-            session.commit()
-            flash('%s Successfully Edited' % editedItem.title)
-            return redirect(url_for('itemDetails', category_id=newID,
-                                    item_id=newItem.id,
-                                    pictureURL=login_session['picture']))
+        if request.form['category'] != editedItem.category_id:
+            editedItem.category_id = request.form['category']
+            # newItem = editedItem
+            # session.delete(editedItem)
+            # session.add(newItem)
+        session.add(editedItem)
+        session.commit()
+        flash('%s Successfully Edited' % editedItem.title)
+        return redirect(url_for('itemDetails', category_id=editedItem.category_id,
+                                item_id=editedItem.id,
+                                pictureURL=login_session['picture']))
     else:
         return render_template('editItem.html', item=editedItem,
                                category=category,

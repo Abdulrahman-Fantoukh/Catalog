@@ -29,7 +29,7 @@ https://www.vagrantup.com/downloads.html
 https://www.virtualbox.org/wiki/Downloads
 
 * FSND Virtual Machine: 
-https://github.com/udacity/fullstack
+https://github.com/udacity/fullstack-nanodegree-vm
 
 Open a terminal window and navigate to Catalog file then write :
 1- vagrant up

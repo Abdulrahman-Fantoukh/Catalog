@@ -1,20 +1,16 @@
 {% extends "main.html" %}
 {% block content %}
 {% include "header.html" %}
-<div>
-    <div class="page-header">
+
+    <div align="center">
         <h1>Catalog</h1>
-        </div>
-    {% include "flash.html" %}
-    <div>
-        <a class="btn btn-success btn-xs" role="button" href='{{url_for('newItem' ) }}'>Add Item</a>
     </div>
+    {% include "flash.html" %}
 
-
-
-    <div class="row">
+    <div class="row" style="background-color:lightgray">
         <div class="col">
-		{% for i in categories %}
+                <strong>Categories:</strong><br>
+		    {% for i in categories %}
         <div>
             <a href='{{url_for('categoryDetails', category_id = i.id)}}'>{{i.name}}</a>
         </div>
@@ -23,14 +19,17 @@
         </div>
       
         <div class="col">
-        <section>Latest added items:</section></br>
+            <strong>Latest added items:</strong><br>
             {% for item,cat in theList %} 
             <div>
                 <a href='{{url_for('itemDetails', category_id = cat.id, item_id = item.id)}}'>{{item.title}}</a><a> in <strong>{{cat.name}}</strong></a>
             </div>
         </br>
         {% endfor %}
+        <div>
+            <a class="btn btn-success btn-xs" role="button" href='{{url_for('newItem' ) }}'>Add Item</a></br>
+        </div>
         </div>
     </div>
-</div>
+
 {% endblock %}

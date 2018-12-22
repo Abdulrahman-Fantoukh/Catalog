@@ -1,15 +1,15 @@
-<div class="row top-menu" style="margin: 20px">
-        <div class="col-md-6">
+<div class="row top-menu" style="padding: 20px;background-color:gray">
+        <div class="col-md-6" align="left">
             <a class="btn btn-primary" href='{{url_for('showCategories') }}'>
-                <span class="glyphicon glyphicon-home" aria-hidden="true"></span>Show All Categories
+                Home
             </a>
         </div>
-        <div class="col-md-6 text-right">
+        <div class="col-md-6 " align="right">
                 {%if 'username' not in session %}
                 <a class="btn btn-primary" href="{{url_for('showLogin')}}">Login </a>
                 {% else %}
                 <a class="btn btn-primary" href="{{url_for('gdisconnect')}}">Logout </a>
                 <img src="{{pictureURL}}" alt="" width="120" height="120">
                 {% endif %}
-            </div>
+        </div>
 </div>

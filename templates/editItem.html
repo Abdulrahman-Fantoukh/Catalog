@@ -4,10 +4,14 @@
         <h1>Editing {{ item.title }}</h1>
         <form action='{{ url_for('editItem', category_id = category.id, item_id = item.id ) }}' method = 'post'>
             <input type ='text' size='30' name='title' value = '{{item.title }}'><br>
-            <input type ='text' size='200' name='description' value = '{{item.description }}'><br>
+            <textarea type ='text' size='600' name='description' value = '{{item.description }}'></textarea><br>
             <Select name = 'category'>
                 <option value="Football">Football</option>
-                <option value="Snowboarding">Snowboarding</option>
+                <option value="Movies">Movies</option>
+                <option value="Smartphones">Smartphones</option>
+                <option value="Geography">Geography</option>
+                <option value="Celebrities">Celebrities</option>
+                <option value="Cars">Cars</option>
             </Select>
             <input type='submit' value='Edit'>
         </form>

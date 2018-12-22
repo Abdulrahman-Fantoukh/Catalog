@@ -1,28 +1,25 @@
 {% extends "main.html" %}
 {% block content %}
 {% include "header.html" %}
+
+<br>
+    <a class="btn btn-primary" href='{{url_for('showCategories') }}'>Go back to Catalog</a><br>
 	
-        <a href='{{url_for('showCategories') }}'>Catalog</a><br>
-	<div>
 		<div>
 		    <h1>{{ category.name }}</h1>
-	    </div>
-        <div>
-            {% include "flash.html" %}
-        </div>
-
-        <div>
-            <a href='{{url_for('newCategoryItem', category_id = category.id)}}'>Add item to {{category.name}}</a>
         </div>
         
-	{% for i in items %}
-        <div>
-            <a href='{{url_for('itemDetails', category_id = category.id, item_id = i.id)}}'>{{i.title}}</a>
-	    </div>
-	    <div>
+            {% include "flash.html" %}
+            <div>
+                <a class="btn btn-success btn-xs" href='{{url_for('newCategoryItem', category_id = category.id)}}'>Add item to {{category.name}}</a>
+            </div>
+            <br>
+            <div style="background-color:lightgray">
+            {% for i in items %}
+                <div>
+                    <a href='{{url_for('itemDetails', category_id = category.id, item_id = i.id)}}'>{{i.title}}</a>
+                </div>
+                <br>
+            {% endfor %}
         </div>
-	{% endfor %}
-
-    </div>
-</div>
 {% endblock %}

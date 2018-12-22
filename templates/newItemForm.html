@@ -3,11 +3,15 @@
 {% include "header.html" %}
         <h1>Add Item</h1>
         <form action='{{ url_for('newItem') }}' method = 'post'>
-            <input type ='text' size='30' name='title' placeholder = 'title'><br>
-            <input type ='text' size='200' name='description' placeholder = 'description'><br>
+            <input type ='text' size='30' name='title' placeholder = 'title' required><br>
+            <textarea rows="3" type ='text' size='600' name='description' placeholder = 'description'></textarea><br>
             <Select name = 'category'>
-                <option value="Football">Football</option>
-                <option value="Snowboarding">Snowboarding</option>
+                    <option value="Football">Football</option>
+                    <option value="Movies">Movies</option>
+                    <option value="Smartphones">Smartphones</option>
+                    <option value="Geography">Geography</option>
+                    <option value="Celebrities">Celebrities</option>
+                    <option value="Cars">Cars</option>
             </Select>
             <input type='submit' value='Add'>
         </form>

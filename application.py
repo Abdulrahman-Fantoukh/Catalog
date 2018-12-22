@@ -342,7 +342,8 @@ def editItem(category_id, item_id):
         session.add(editedItem)
         session.commit()
         flash('%s Successfully Edited' % editedItem.title)
-        return redirect(url_for('itemDetails', category_id=editedItem.category_id,
+        return redirect(url_for('itemDetails',
+                                category_id=editedItem.category_id,
                                 item_id=editedItem.id,
                                 pictureURL=login_session['picture']))
     else:
